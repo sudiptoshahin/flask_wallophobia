@@ -1,0 +1,179 @@
+
+/* fonts */
+@font-face {
+    font-family: montserrat_regular;
+    src: url('../static/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: montserrat_bold;
+    src: url('../static/fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: montserrat_black;
+    src: url('../static/fonts/Montserrat-Black.ttf');
+}
+@font-face {
+    font-family: montserrat_medium;
+    src: url('../static/fonts/Montserrat-Medium.ttf')
+}
+
+@font-face {
+    font-family: lato_regular;
+    src: url('../static/fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: lato_bold;
+    src: url('../static/fonts/Lato-Bold.ttf');
+}
+
+@font-face {
+    font-family: lato_black;
+    src: url('../static/fonts/Lato-Black.ttf');
+}
+/* fonts ends */
+
+
+/* layout */
+
+li {
+    list-style-type: None;
+}
+
+.dropdown-menu-style {
+    min-width: 100%;
+    width: 300px;
+    background: black;
+    aspect-ratio: 100/29;
+}
+
+.main-banner-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 350px;
+    width: auto;
+}
+
+.banner-content {
+    /* centering elements */
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 10%;
+}
+
+.banner-headline {
+    color: white;
+    font-family: lato_black;
+    font-size: 35px;
+}
+
+.banner-text-1 {
+    color: white;
+    font-family: montserrat_regular;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.banner-text-2 {
+    color: white;
+    opacity: calc(10);
+    font-family: montserrat_regular;
+    font-size: 12px;
+
+}
+
+.main-search {
+    padding: 15px;
+}
+/* end layout */
+
+
+/* signup page */
+
+.signup {
+    padding: 0;
+}
+
+.signin {
+    padding: 10%;
+}
+
+.side-banner-img {
+    width:30%;
+}
+.banner-img {
+    height: 100%;
+}
+
+.signup-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form-content {
+    width: 50%;
+    height: fix-content;
+}
+
+.signupnow {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.signupnow .signupnow-content span {
+    font-family: montserrat_medium;
+    font-size: 13px;
+}
+
+.signupnow .signupnow-content a {
+    font-family: lato_regular;
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+.signup-form-content .logo {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 10px;
+    /* background-color: aqua; */
+}
+
+.signup-form-container .signup-form-content .headline {
+    font-family: lato_bold;
+    font-weight: bold;
+    font-size: 25px;
+    /* background-color: aquamarine; */
+}
+
+.signup-form-container .signup-form-content .signup-form .form-labels {
+    font-family: montserrat_bold;
+}
+/* signup page ends */
+
+/* account */
+.account-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.update-account {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+/************ profile pic upload components *********************/
+.show-uploaded-image {
+    display: flex;
+    justify-content: center;
+    background-position: center;
+}
+/******************** end *************************/
+
+/* ends of account */

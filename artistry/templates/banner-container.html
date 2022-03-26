@@ -1,0 +1,28 @@
+<div class="main-banner-container" style="background-image: url('../static/images/banner-bg.jpg');">
+
+    <!-- show the flash messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <!-- end of showing flash messages -->
+
+    <div class="container banner-content">
+      <div class="banner-headline">Stunning free images & royalty free stock</div>
+      <div class="banner-text-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium, doloribus?</div>
+
+      <div class="main-search">
+        <form action="" method="get">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search images, vectors and illustrations here" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2">Search</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="banner-text-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, ipsa?</div>
+    </div>
+</div>

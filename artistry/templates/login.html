@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    
+    <!-- show the flash messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <!-- end of showing flash messages -->
+    <div class="row signin">
+        <div class="col-4 side-banner-img">
+            <img class="img-fluid banner-img" src="{{ url_for('static', filename='/images/login-banner.png') }}" alt="">
+        </div>
+
+        <div class="col-8 signup-form-container">
+            <div class="signup-form-content">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}">
+                        <img src="{{ url_for('static', filename='/images/logo.svg') }}" alt="logo" srcset="">
+                    </a>
+                </div>
+                <div class="headline mt-5">Sign in to WalloPhobia</div>
+
+                <div class="signup-form pt-5">
+                    <form class="form" action="" method="post">
+                        {{ form.hidden_tag() }}
+                        <div class="row">
+
+                            <div class="col">
+                                <div class="form-group">
+                                    {{ form.usernameOrEmail.label(class='form-labels') }}
+
+                                    {% if form.usernameOrEmail.errors %}
+                                        {{ form.usernameOrEmail(class='form-control form-control-lg is-invalid') }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.usernameOrEmail.errors %}
+                                                <span> {{ error }} </span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.usernameOrEmail(class='form-control form-control-lg') }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group pt-3">
+                            {{ form.password.label(class='form-labels') }}
+
+                            {% if form.password.errors %}
+                                {{ form.password(class='form-control form-control-lg in-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group pt-5">
+                            {{ form.submit(class='btn btn-success px-5') }}
+                        </div>
+
+                        <div class="signupnow pt-3">
+                            <div class="signupnow-content">
+                                <span>Not a member?</span><a href="{{ url_for('signup') }}">Signup now</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'post-pages-layouts.html' %}
+
+{% block content %}
+
+<!-- DATA FROM DATABASE -->
+<section class="section">
+    <div class="container">
+        {% for username, all_photos in photo_dict.items() %}
+            {% for row in all_photos|batch(3) %}
+                <div class="row">
+                    {% for photo in row %}
+                        <div class="col">
+                            <img src="{{ url_for('static', filename='/photos/'+username+'/'+photo) }}" alt="..." class="img-thumbnail">  
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</section>
+<!-- END -->
+
+<!-- DATA FROM FILE-SYSTEM -->
+
+<!-- END -->
+
+{% endblock content %}

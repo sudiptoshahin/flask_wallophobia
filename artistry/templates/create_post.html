@@ -1,0 +1,78 @@
+{% extends 'general-layouts.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="show-uploaded-image">
+        <img src="../static/images/banner-bg.jpg" alt="" width="400">
+    </div>
+    <form action="" class="form" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    {{ form.title.label(class='form-labels') }}
+    
+                    {% if form.title.errors %}
+                        {{ form.title(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    {{ form.type.label(class='form-labels') }}
+    
+                    {% if form.type.errors %}
+                        {{ form.type(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.type.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.type(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <!-- <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div>
+                    <select name="photo_type_select" class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">Photos</option>
+                      <option value="2">Illustrations</option>
+                      <option value="3">Vectors</option>
+                    </select>
+                </div> -->
+            </div>
+            <div class="col-4">
+                <div class="jumbotron">
+                    {{ form.photo_file.label(class='display-5') }}
+                    <p class="lead">Select your files from here</p>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        {{ form.photo_file(class='form-control-file') }}
+                        {% if form.photo_file.errors %}
+                            {% for error in form.photo_file.errors %}
+                                <span class="text-danger">{{ error }}</span><br>
+                            {% endfor %}
+                    
+                        {% endif %}
+                    </div>
+                  </div>
+                
+            </div>
+        </div>
+        <div class="form-group py-5">
+            {{ form.submit(class='btn btn-danger px-5') }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
